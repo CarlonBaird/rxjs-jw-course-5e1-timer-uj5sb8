@@ -19,6 +19,7 @@ const timer$ = new Observable<number>((subscriber) => {
     subscriber.complete();
   }, 2000);
 
+  //Teardown logic: we need to properly clean up to avoid memory leaks
   return () => clearTimeout(timeoutId);
 });
 
